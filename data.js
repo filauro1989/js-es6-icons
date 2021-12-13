@@ -132,7 +132,7 @@ let container = document.querySelector('.container');
 // CICLO FOREACH
 stuff.forEach((element) => {
 
-	let content = `<div class="card ${element.type}"><i class="${element.family} ${element.prefix}${element.name}" style="color:${element.color}"></i> <div class="card-name">${element.name}</div></div>`;
+	let content = `<div class="card ${element.type}"><i class="${element.family} ${element.prefix}${element.name}" style="color:${element.color}"></i><div class="card-name">${element.name}</div></div>`;
 	
  	container.innerHTML += content;
 } );
@@ -144,8 +144,6 @@ let typeSelector = document.getElementById('type-selector');
 let animals = document.querySelectorAll('.animal');
 let vegetables = document.querySelectorAll('.vegetable');
 let users = document.querySelectorAll('.user');
-
-console.log(animals);
 
 typeSelector.addEventListener("change", function() {
 
@@ -159,7 +157,6 @@ typeSelector.addEventListener("change", function() {
 		users[index].classList.remove('disactive');	
 	};
 
-	console.log('You selected: ', this.value);
 	if (typeSelector.value == 'animal') {
 		for (let index = 0; index < vegetables.length; index++) {
 			vegetables[index].classList.add('disactive');
@@ -167,6 +164,7 @@ typeSelector.addEventListener("change", function() {
 		for (let index = 0; index < users.length; index++) {
 			users[index].classList.add('disactive');	
 		}
+
 	} else if (typeSelector.value == 'vegetable') {
 		for (let index = 0; index < animals.length; index++) {
 			animals[index].classList.add('disactive');
@@ -174,6 +172,7 @@ typeSelector.addEventListener("change", function() {
 		for (let index = 0; index < users.length; index++) {
 			users[index].classList.add('disactive');	
 		}
+
 	} else if (typeSelector.value == 'user') {
 		for (let index = 0; index < animals.length; index++) {
 			animals[index].classList.add('disactive');
@@ -183,3 +182,18 @@ typeSelector.addEventListener("change", function() {
 		}
 	}
 });
+
+// BONUS 1- modificare la struttura dati fornita e valorizzare la proprietà "color" in modo dinamico: generare in modo casuale un codice colore, sapendo che la notazione esadecimale è formata dal simbolo "#" seguito da 6 caratteri alfanumerici compresi tra 0 e 9 e A e F.
+
+const animalsColor = getRandomColor();
+const vegetablesColor = getRandomColor();
+const usersColor = getRandomColor();
+
+function getRandomColor() {
+	var letters = '0123456789ABCDEF';
+	var color = '#';
+	for (var i = 0; i < 6; i++) {
+	  color += letters[Math.floor(Math.random() * 16)];
+	}
+	return color;
+}
