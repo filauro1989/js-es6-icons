@@ -119,7 +119,7 @@ let container = document.querySelector('.container');
 
 for (let index = 0; index < stuff.length; index++) {
 	const element = stuff[index];
-	let content = `<div class="card"><i class="${element.family} ${element.prefix}${element.name}"</i></div>`;
+	let content = `<div class="card"><i class="${element.family} ${element.prefix}${element.name}"></i> <div class="card-name">${element.name}</div></div>`;
 	
 	container.innerHTML += content;
 	
