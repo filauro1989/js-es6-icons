@@ -113,14 +113,27 @@ let stuff = [
 	}
 ];
 
+// Milestone 1
 // Partendo dalla struttura dati fornita, visualizzare in pagina un box per ogni icona, in cui è presente il nome dell'icona e l'icona stessa.
+// Milestone 2
+// Ciascuna icona ha una proprietà "color": utilizzare questa proprietà per visualizzare le icone del colore corrispondente.
 
 let container = document.querySelector('.container');
 
-for (let index = 0; index < stuff.length; index++) {
-	const element = stuff[index];
-	let content = `<div class="card"><i class="${element.family} ${element.prefix}${element.name}"></i> <div class="card-name">${element.name}</div></div>`;
+// CICLO FOR 
+// for (let index = 0; index < stuff.length; index++) {
+// 	const element = stuff[index];
+// 	let content = `<div class="card"><i class="${element.family} ${element.prefix}${element.name}" style="color:${element.color}"></i> <div class="card-name">${element.name}</div></div>`;
 	
-	container.innerHTML += content;
+// 	container.innerHTML += content;
 	
-}
+// }
+
+// CICLO FOREACH
+stuff.forEach((element) => {
+
+	let content = `<div class="card"><i class="${element.family} ${element.prefix}${element.name}" style="color:${element.color}"></i> <div class="card-name">${element.name}</div></div>`;
+	
+ 	container.innerHTML += content;
+} );
+
