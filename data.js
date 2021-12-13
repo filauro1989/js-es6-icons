@@ -132,8 +132,54 @@ let container = document.querySelector('.container');
 // CICLO FOREACH
 stuff.forEach((element) => {
 
-	let content = `<div class="card"><i class="${element.family} ${element.prefix}${element.name}" style="color:${element.color}"></i> <div class="card-name">${element.name}</div></div>`;
+	let content = `<div class="card ${element.type}"><i class="${element.family} ${element.prefix}${element.name}" style="color:${element.color}"></i> <div class="card-name">${element.name}</div></div>`;
 	
  	container.innerHTML += content;
 } );
 
+// Milestone 3
+// Aggiungere alla pagina una select in cui le options corrispondono ai vari tipi di icone (animal, vegetable, user). Quando l'utente seleziona un tipo dalla select, visualizzare solamente le icone corrispondenti.
+
+let typeSelector = document.getElementById('type-selector');
+let animals = document.querySelectorAll('.animal');
+let vegetables = document.querySelectorAll('.vegetable');
+let users = document.querySelectorAll('.user');
+
+console.log(animals);
+
+typeSelector.addEventListener("change", function() {
+
+	for (let index = 0; index < animals.length; index++) {
+		animals[index].classList.remove('disactive');	
+	};
+	for (let index = 0; index < vegetables.length; index++) {
+		vegetables[index].classList.remove('disactive');	
+	};
+	for (let index = 0; index < users.length; index++) {
+		users[index].classList.remove('disactive');	
+	};
+
+	console.log('You selected: ', this.value);
+	if (typeSelector.value == 'animal') {
+		for (let index = 0; index < vegetables.length; index++) {
+			vegetables[index].classList.add('disactive');
+		};
+		for (let index = 0; index < users.length; index++) {
+			users[index].classList.add('disactive');	
+		}
+	} else if (typeSelector.value == 'vegetable') {
+		for (let index = 0; index < animals.length; index++) {
+			animals[index].classList.add('disactive');
+		};
+		for (let index = 0; index < users.length; index++) {
+			users[index].classList.add('disactive');	
+		}
+	} else if (typeSelector.value == 'user') {
+		for (let index = 0; index < animals.length; index++) {
+			animals[index].classList.add('disactive');
+		};
+		for (let index = 0; index < vegetables.length; index++) {
+			vegetables[index].classList.add('disactive');	
+		}
+	}
+});
