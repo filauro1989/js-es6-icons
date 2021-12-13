@@ -1,4 +1,4 @@
-let animals = [
+let stuff = [
 	{
 		name: 'cat',
 		prefix: 'fa-',
@@ -114,3 +114,13 @@ let animals = [
 ];
 
 // Partendo dalla struttura dati fornita, visualizzare in pagina un box per ogni icona, in cui è presente il nome dell'icona e l'icona stessa.
+
+let container = document.querySelector('.container');
+
+for (let index = 0; index < stuff.length; index++) {
+	const element = stuff[index];
+	let content = `<div class="card"><i class="${element.family} ${element.prefix}${element.name}"</i></div>`;
+	
+	container.innerHTML += content;
+	
+}
